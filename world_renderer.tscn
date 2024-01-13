@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c24yaaovgnytb"]
+
+[ext_resource type="Shader" path="res://WorldShader.gdshader" id="1_75j2r"]
+[ext_resource type="Texture2D" uid="uid://esxd6vhg55el" path="res://icon.svg" id="2_4leac"]
+[ext_resource type="Script" path="res://Canvas.gd" id="3_e0u8k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yso7q"]
+shader = ExtResource("1_75j2r")
+shader_parameter/p1 = null
+shader_parameter/p2 = null
+
+[node name="WorldRenderer" type="Node2D"]
+
+[node name="Canvas" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yso7q")
+scale = Vector2(9, 4.5)
+texture = ExtResource("2_4leac")
+centered = false
+script = ExtResource("3_e0u8k")
