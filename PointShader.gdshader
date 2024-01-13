@@ -1,7 +1,6 @@
 shader_type canvas_item;
 
 uniform vec2 p1;
-uniform vec2 p2;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -14,14 +13,8 @@ void fragment() {
      if (-PI <= lambda && lambda <= PI)
 	 {
 		float phi1 = p1.x;
-		float phi2 = p2.x;
 		float lambda1 = p1.y;
-		float lambda2 = p2.y;
-		vec3 x = vec3(cos(lambda)*cos(phi),sin(lambda)*cos(phi),sin(phi));
-		vec3 x1 = vec3(cos(lambda1)*cos(phi1),sin(lambda1)*cos(phi1),sin(phi1));
-		vec3 x2 = vec3(cos(lambda2)*cos(phi2),sin(lambda2)*cos(phi2),sin(phi2));
-		vec3 u = normalize(cross(x1,x2));
-		float d = dot(x,u);
+		float d = acos(sin(phi)*sin(phi1)+cos(phi)*cos(phi1)*cos(lambda1-lambda));
 		if (abs(d) < 0.05)
 			COLOR = vec4(1.0,0.0,0.0,1.0);
 		else

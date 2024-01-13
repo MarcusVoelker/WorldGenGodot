@@ -22,7 +22,7 @@ void fragment() {
 		vec3 x2 = vec3(cos(lambda2)*cos(phi2),sin(lambda2)*cos(phi2),sin(phi2));
 		vec3 u = normalize(cross(x1,x2));
 		float d = dot(x,u);
-		if (abs(d) < 0.05)
+		if (abs(d) < 0.01)
 			COLOR = vec4(1.0,0.0,0.0,1.0);
 		else
 			COLOR = vec4(0.0,0.0,0.0,1.0);
